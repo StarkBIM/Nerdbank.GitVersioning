@@ -135,7 +135,7 @@ jobs:
       command: push
       packagesToPush: $(Build.ArtifactStagingDirectory)/deployables/*.*nupkg
       nuGetFeedType: internal
-      publishVstsFeed: 6ed146e5-8e9c-46d6-a40f-da9367ed50cd/c20edbb7-8403-4456-8f43-f46b47e360b1
+      publishVstsFeed: '84d4960b-eb45-4699-93f1-3df5542ce440'
       allowPackageConflicts: true
     condition: and(succeeded(), ne(variables['System.PullRequest.IsFork'], 'true'))
 
