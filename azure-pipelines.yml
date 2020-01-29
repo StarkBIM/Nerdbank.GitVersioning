@@ -58,12 +58,13 @@ jobs:
       nugetConfigPath: src/nuget.config
       workingDirectory: src
 
-  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-installer-task.YarnInstaller@2
-    displayName: 'Use Yarn 1.x'
-  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
-    displayName: 'Yarn install'
+  - task: YarnInstaller@3
     inputs:
-      ProjectDirectory: 'src/nerdbank-gitversioning.npm'
+      versionSpec: '1.x'
+      
+  - task: Yarn@3
+    inputs:
+      projectDirectory: 'src/nerdbank-gitversioning.npm'
 
   - script: dotnet build -c $(BuildConfiguration) --no-restore /t:build,pack /bl:"$(Build.ArtifactStagingDirectory)/build_logs/msbuild.binlog"
     displayName: Build NuGet package and tests
