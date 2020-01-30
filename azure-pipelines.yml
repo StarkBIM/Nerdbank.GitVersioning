@@ -38,7 +38,7 @@ jobs:
   - task: UseDotNet@2
     inputs:
       packageType: 'sdk'
-      version: '2.2.402'
+      useGlobalJson: true
   - script: dotnet --info
     displayName: Show dotnet SDK info
 
