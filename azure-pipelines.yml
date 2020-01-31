@@ -130,7 +130,7 @@ jobs:
     displayName: Publish build_logs artifacts
     condition: succeededOrFailed()
   - task: NuGetCommand@2
-    displayName: Pushing package to PublicCI feed
+    displayName: Pushing package to StarkBIM feed
     inputs:
       command: push
       packagesToPush: $(Build.ArtifactStagingDirectory)/deployables/*.*nupkg
